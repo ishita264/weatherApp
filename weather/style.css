@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Vollkorn');
+
+
+body{
+background-image:url("https://images.pexels.com/photos/236970/pexels-photo-236970.jpeg?w=940&h=650&auto=compress&cs=tinysrgb");
+background-repeat: no-repeat;
+background-size:cover;
+	
+}
+
+.text-center{
+font-family: 'Vollkorn', serif;
+}

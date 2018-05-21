@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></script>
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+ <script src="https://use.fontawesome.com/6bb989a5d9.js"></script>
+ <link href="style.css" rel="stylesheet" type="text/css" />
+
+<script>
+
+$(document).ready(function(){
+
+
+
+
+
+if(navigator.geolocation){
+
+var lat;
+var long;
+var url="http://api.openweathermap.org/data/2.5/weather?lat=30.339781&lon=76.386880&appid=44b97ab30bc4b47718c38a1623631925";
+navigator.geolocation.getCurrentPosition(function(position){
+lat = position.coords.latitude;
+long = position.coords.longitude;
+$("#data").html("latitude"+ lat + <br>"longitude"+ long);
+});
+
+}
+
+$.getJSON(url, function(data){
+
+
+var kTemp;
+var fTemp;
+var cTemp;
+
+ var weatherType = data.weather[0].description;
+ kTemp = data.main.temp;
+ var windSpeed = data.wind.speed;
+var city = data.name;
+
+fTemp = ((kTemp)*(9/5)-459.67);
+
+cTemp = (ktemp-273);
+
+console.log(city);
+$(#city).html(city);
+$(#weatherType).html(weatherType);
+$(#fTemp).html(fTemp);
+$(#fTemp).click(function(){
+
+if(fTemp==false){
+$(#cTemp).html(cTemp);
+tempswap=true;
+}
+else{
+$(#fTemp).html(fTemp);
+tempswap=false;
+}
+});
+
+$(#weatherSpeed).html(weatherSpeed);
+});
+
+</script>
+
+</head>
+
+<body>
+<div class="container-fluid text-center">
+  <h1>Local Weather App</h1>
+<div class="des" id="weathertype"><br>Sunny</div>
+  <li class="btn btn-info" id="city"></li>
+  <li class="btn btn-success" id="fTemp"></li>
+  <li class="btn btn-danger" id="waetherspeed"></li>
+ 
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
